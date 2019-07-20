@@ -16,11 +16,6 @@ public class BulletMove : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         characterAction = player.GetComponent<MoveCharacterAction>();
         bulletVelocity = new Vector2(1, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if ((characterAction.GetGunDirection() == MoveCharacterAction.GunDirection.Right) &&
             (characterAction.IsJump() == false))
         {
@@ -43,12 +38,21 @@ public class BulletMove : MonoBehaviour
             bulletVelocity = new Vector2(-1, -1);
             bulletVelocity.Normalize();
         }
+    }
 
+        // Update is called once per frame
+        void Update()
+    {
+        
+
+
+        
     }
 
     private void FixedUpdate()
     {
-        rd2DBullet.position += bulletVelocity / 100;
+        rd2DBullet.position += bulletVelocity / 10;
+        //rd2DBullet.AddForce(bulletVelocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
