@@ -52,7 +52,6 @@ public class BulletMove : MonoBehaviour
     private void FixedUpdate()
     {
         rd2DBullet.position += bulletVelocity / 10;
-        //rd2DBullet.AddForce(bulletVelocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
