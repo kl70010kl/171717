@@ -261,7 +261,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -635,6 +635,11 @@ PrefabInstance:
       propertyPath: warnngSliderCtr
       value: 
       objectReference: {fileID: 983904846}
+    - target: {fileID: 5611033079083197462, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: delayTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a70dccfc868d44bb5f75c49252fbd0, type: 3}
 --- !u!1 &983904846 stripped
@@ -1069,6 +1074,11 @@ PrefabInstance:
       propertyPath: warnngSliderCtr
       value: 
       objectReference: {fileID: 983904846}
+    - target: {fileID: 5611033079083197462, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: delayTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5611033079186638668, guid: f2a70dccfc868d44bb5f75c49252fbd0,
         type: 3}
       propertyPath: m_SortingLayerID

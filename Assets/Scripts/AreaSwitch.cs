@@ -15,6 +15,7 @@ public class AreaSwitch : MonoBehaviour
     private bool isCollision;
     public float onTime = 3.0f;
     public float offTime = 2.0f;
+    public float delayTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,24 +30,31 @@ public class AreaSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switchTimer += Time.deltaTime;
-
-        if(cameraSwitch == true)
+        
+        if (delayTime > 0)
         {
-            if (switchTimer >= onTime)
-            {
-                cameraSwitch = false;
-                area.SetActive(cameraSwitch);
-                switchTimer = 0;
-            }
+            delayTime -= Time.deltaTime;
         }
-        else if(cameraSwitch == false)
+        else if (delayTime <= 0)
         {
-            if (switchTimer >= offTime)
+            switchTimer += Time.deltaTime;
+            if (cameraSwitch == true)
             {
-                cameraSwitch = true;
-                area.SetActive(cameraSwitch);
-                switchTimer = 0;
+                if (switchTimer >= onTime)
+                {
+                    cameraSwitch = false;
+                    area.SetActive(cameraSwitch);
+                    switchTimer = 0;
+                }
+            }
+            else if (cameraSwitch == false)
+            {
+                if (switchTimer >= offTime)
+                {
+                    cameraSwitch = true;
+                    area.SetActive(cameraSwitch);
+                    switchTimer = 0;
+                }
             }
         }
     }
