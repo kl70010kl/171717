@@ -9,6 +9,8 @@ public class SwitchController : MonoBehaviour
     private GameObject switchOn; //スイッチオン状態のオブジェクト
     private Rigidbody2D rd2DSwitchOn;
     private Rigidbody2D rd2DSwitchOff;
+    public GameObject fixedCamera;
+    private FixedCameraArea cameraArea;
 
     //スイッチの状態
     public enum SwitchState
@@ -33,6 +35,7 @@ public class SwitchController : MonoBehaviour
         //各スイッチのリジッドボディ取得
         rd2DSwitchOn = switchOn.GetComponent<Rigidbody2D>();
         rd2DSwitchOff = switchOff.GetComponent<Rigidbody2D>();
+        cameraArea = fixedCamera.GetComponent<FixedCameraArea>();
     }
 
     // Update is called once per frame
@@ -67,6 +70,7 @@ public class SwitchController : MonoBehaviour
                 rd2DSwitchOn.position = rd2DSwitchOff.position;
                 switchOn.SetActive(true);
                 switchState = SwitchState.On;
+                cameraArea.CameraSwichChange(false);
             }
     }
 

@@ -140,7 +140,11 @@ public class MoveCharacterAction : MonoBehaviour
         }
         else if (playerState == PlayerState.Stealth)
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.A) ||
+                Input.GetKeyDown(KeyCode.D) ||
+                Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKeyDown(KeyCode.LeftArrow) ||
+                Input.GetKeyDown(KeyCode.RightArrow)) 
             {
                 playerState = PlayerState.Active;
                 spriteRenderer.color = initColor;

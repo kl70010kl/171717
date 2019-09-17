@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 425768417
+    locked: 0
+  - name: Light
+    uniqueID: 2572058621
+    locked: 0
+  - name: Stage
+    uniqueID: 3263549861
+    locked: 0
