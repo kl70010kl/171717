@@ -10,6 +10,17 @@ public class DroneController : MonoBehaviour
     public GameObject block;
     private int blockCreateCount;
     public GameObject camera;
+    private GameObject player;
+    private MoveCharacterAction characterAction;
+
+    private enum DroneState
+    {
+        Following,
+        Support,
+        Attack,
+    }
+
+    private DroneState state;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +28,9 @@ public class DroneController : MonoBehaviour
         rd = GetComponent<Rigidbody2D>();
         //blockCreateCount = 0;
         blockCreateCount = Block.blockCount;
+        state = DroneState.Following;
+        player = GameObject.FindGameObjectWithTag("Player");
+        characterAction = player.GetComponent<MoveCharacterAction>();
     }
 
     // Update is called once per frame
@@ -31,6 +45,35 @@ public class DroneController : MonoBehaviour
                 blockCreateCount++;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            StateChangeZ();
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            StateChangeX();
+        }
+
+        switch (state)
+        {
+            case DroneState.Following:
+                if (characterAction.gunDirection == MoveCharacterAction.GunDirection.Right)
+                {
+                    transform.position = player.transform.position - new Vector3(0.32f, -0.32f, 0);
+                }
+                else if(characterAction.gunDirection == MoveCharacterAction.GunDirection.Left)
+                {
+                    transform.position = player.transform.position - new Vector3(-0.32f, -0.32f, 0);
+                }
+                break;
+            case DroneState.Attack:
+                break;
+            case DroneState.Support:
+                break;
+        }
+
+        print(state);
     }
 
     private void FixedUpdate()
@@ -70,5 +113,39 @@ public class DroneController : MonoBehaviour
 
 
         rd.velocity = new Vector3(h * speed, v * speed, 0);
+    }
+
+    private void StateChangeZ()
+    {
+
+        if (state == DroneState.Following)
+        {
+            state = DroneState.Attack;
+        }
+        else if (state == DroneState.Attack)
+        {
+            state = DroneState.Support;
+        }
+        else if (state == DroneState.Support)
+        {
+            state = DroneState.Following;
+        }
+
+    }
+
+    private void StateChangeX()
+    {
+        if (state == DroneState.Following)
+        {
+            state = DroneState.Support;
+        }
+        else if (state == DroneState.Support)
+        {
+            state = DroneState.Attack;
+        }
+        else if (state == DroneState.Attack)
+        {
+            state = DroneState.Following;
+        }
     }
 }

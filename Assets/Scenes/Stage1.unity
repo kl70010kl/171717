@@ -261,7 +261,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -640,6 +640,16 @@ PrefabInstance:
       propertyPath: delayTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5611033079186638668, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1722908675
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611033079186638668, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a70dccfc868d44bb5f75c49252fbd0, type: 3}
 --- !u!1 &983904846 stripped
@@ -742,6 +752,16 @@ PrefabInstance:
       propertyPath: warnngSliderCtr
       value: 
       objectReference: {fileID: 983904846}
+    - target: {fileID: 5611033079186638668, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1722908675
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611033079186638668, guid: f2a70dccfc868d44bb5f75c49252fbd0,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a70dccfc868d44bb5f75c49252fbd0, type: 3}
 --- !u!1001 &1296453771
@@ -1161,12 +1181,12 @@ PrefabInstance:
     - target: {fileID: 2419036341679038650, guid: e82fef177e8842d479a5538e5c9031d4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2419036341679038650, guid: e82fef177e8842d479a5538e5c9031d4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 2419036341679038650, guid: e82fef177e8842d479a5538e5c9031d4,
         type: 3}
@@ -1351,6 +1371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180777655413801472, guid: 450fe5d5901195c4588a2f696530cf5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8180777656682944831, guid: 450fe5d5901195c4588a2f696530cf5f,
         type: 3}
