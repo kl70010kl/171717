@@ -58,14 +58,7 @@ public class DroneController : MonoBehaviour
         switch (state)
         {
             case DroneState.Following:
-                if (characterAction.gunDirection == MoveCharacterAction.GunDirection.Right)
-                {
-                    transform.position = player.transform.position - new Vector3(0.32f, -0.32f, 0);
-                }
-                else if(characterAction.gunDirection == MoveCharacterAction.GunDirection.Left)
-                {
-                    transform.position = player.transform.position - new Vector3(-0.32f, -0.32f, 0);
-                }
+                FollowingUpdate();
                 break;
             case DroneState.Attack:
                 break;
@@ -146,6 +139,26 @@ public class DroneController : MonoBehaviour
         else if (state == DroneState.Attack)
         {
             state = DroneState.Following;
+        }
+    }
+
+    private void FollowingUpdate()
+    {
+        if (characterAction.gunDirection == MoveCharacterAction.GunDirection.Right)
+        {
+            transform.position = player.transform.position - new Vector3(0.32f, -0.32f, 0);
+        }
+        else if (characterAction.gunDirection == MoveCharacterAction.GunDirection.Left)
+        {
+            transform.position = player.transform.position - new Vector3(-0.32f, -0.32f, 0);
+        }
+    }
+
+    private void AttackUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+
         }
     }
 }
